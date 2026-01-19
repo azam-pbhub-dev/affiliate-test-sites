@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const START_NUMBER = 14;
-const END_NUMBER = 500;
+const START_NUMBER = 501;
+const END_NUMBER = 526;
 const TEMPLATE_DIR = path.join(__dirname, 'advertiser1');
 const OUTPUT_BASE = __dirname;
 
@@ -43,7 +43,7 @@ for (let i = START_NUMBER; i <= END_NUMBER; i++) {
     created++;
 
     // Progress indicator every 50 sites
-    if (created % 50 === 0) {
+    if (created % 10 === 0) {
         console.log(`✅ Created ${created} sites so far... (currently at advertiser${i})`);
     }
 }
