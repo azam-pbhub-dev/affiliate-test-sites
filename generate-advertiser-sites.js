@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const START_NUMBER = 501;
-const END_NUMBER = 526;
-const TEMPLATE_DIR = path.join(__dirname, 'advertiser1');
+const START_NUMBER = 5;
+const END_NUMBER = 50;
+const TEMPLATE_DIR = path.join(__dirname, 'local-advertiser1');
 const OUTPUT_BASE = __dirname;
 
 // Read template files
@@ -19,7 +19,7 @@ let skipped = 0;
 
 // Generate sites
 for (let i = START_NUMBER; i <= END_NUMBER; i++) {
-    const advertiserDir = path.join(OUTPUT_BASE, `advertiser${i}`);
+    const advertiserDir = path.join(OUTPUT_BASE, `local-advertiser${i}`);
 
     // Skip if directory already exists
     if (fs.existsSync(advertiserDir)) {
@@ -32,8 +32,8 @@ for (let i = START_NUMBER; i <= END_NUMBER; i++) {
 
     // Generate HTML with replaced numbers
     const htmlContent = templateHtml
-        .replace(/Test Advertiser 1 Landing/g, `Test Advertiser ${i} Landing`)
-        .replace(/Test Advertiser 1/g, `Test Advertiser ${i}`);
+        .replace(/Local Test Advertiser 1 Landing/g, `Local Test Advertiser ${i} Landing`)
+        .replace(/Local Test Advertiser 1/g, `Local Test Advertiser ${i}`);
 
     // Write files
     fs.writeFileSync(path.join(advertiserDir, 'index.html'), htmlContent);
@@ -51,4 +51,4 @@ for (let i = START_NUMBER; i <= END_NUMBER; i++) {
 console.log(`\n✨ Complete!`);
 console.log(`   Created: ${created} new sites`);
 console.log(`   Skipped: ${skipped} existing sites`);
-console.log(`   Total sites: advertiser1 to advertiser${END_NUMBER}`);
+console.log(`   Total sites: local-advertiser1 to local-advertiser${END_NUMBER}`);
